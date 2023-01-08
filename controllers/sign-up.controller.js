@@ -1,6 +1,7 @@
 const {addInfoUserFromSignUp} = require("../models/sign-up.model.js")
 
 
+
 module.exports.getInfoUserFromSignUp = async(req,res)=>{
     try {
         let dataUser = req.body;
@@ -12,4 +13,6 @@ module.exports.getInfoUserFromSignUp = async(req,res)=>{
         res.json({message:error})
     }
 }
+
+
 
