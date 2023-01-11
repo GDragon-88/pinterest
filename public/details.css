@@ -1,0 +1,192 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+.content{
+    width: 70%;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    top: 75px;
+    border-radius: 20px;
+    display: flex;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+}
+.img{
+    width: 50%;
+    min-height:100% ;
+    border-bottom-left-radius:20px ;
+    border-top-left-radius:20px ;
+
+}
+.img img{
+    border-bottom-left-radius:20px ;
+    border-top-left-radius:20px ;
+    width: 100%;
+    height: 500px;
+}
+.textContent{
+    position: relative;
+    width: 50%;
+    min-height:100%;
+    background-color:#fff;
+    border-bottom-right-radius:20px ;
+    border-top-right-radius:20px ;
+}
+.saveBlog{
+    width: 100%;
+    height: 40px;
+    position: sticky;
+    top: 75px;
+    display: flex;
+    align-items: center;
+}
+.icon{
+    position: relative;
+    left: 20px;
+    display:flex;
+    width: 110px;
+    justify-content: space-around;
+    align-items: center;
+
+}
+.saveBlog i{
+    line-height: 30px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 15px;
+    cursor: pointer;
+}
+.saveBlog i:hover{
+    background-color: aliceblue;
+}
+#btnSave{
+    width: 50px;
+    height: 80%;
+    background-color: red;
+    color: white;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    position: absolute;
+    right: 30px;
+    cursor: pointer;
+}
+#btnSave:hover{
+    background-color: rgb(142, 4, 4);
+}
+
+.tilte{
+    position: relative;
+    width: 86%;
+    min-height: max-content;
+    top: 25px;
+    left: 7%;
+    font-size: 23px;
+    font-weight: 900;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    line-height: 28px;
+}
+
+.comment{
+    position: relative;
+    width: 86%;
+    margin-left: 7%;
+    min-height: max-content;
+    margin-top:50px ;
+}
+.comment span{
+    position: relative;
+    font-size: 17px;
+    font-weight: 700;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.text-comment{
+    position: relative;
+    width: 100%;
+    top: 10px;
+    height: max-content;
+}
+.text-comment img{
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: antiquewhite;
+    position: relative;
+    top: 5px;
+    cursor: pointer;
+}
+.user-comment{
+    width: 100%;
+    position: relative;
+    top: 0;
+    line-height: 17px;
+    align-items: center;
+    
+}
+.user-comment .user{
+    display: inline;
+    width: max-content;
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+    margin-left: 4px;  
+}
+.user-comment span{
+    font-size: 12px;
+    font-weight: 100;
+    word-break:break-all;
+}
+.response{
+    position: relative;
+    width: 180px;
+    height: 13px;
+    left: 0;
+    display: flex;
+    justify-content: space-around;
+    line-height: 13px;
+    color: rgb(68, 65, 65,.8);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
+}
+.response small{
+    cursor: pointer;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.input{
+    position: relative;
+    top: 40px;
+    width: 100%;
+    height: 40px;
+}
+.input input{
+    position: absolute;
+    width: 70%;
+    height: 100%;
+    left: 20%;
+    outline: none;
+    border-radius: 25px;
+    border: 1px rgb(0, 0, 0,.4) solid;
+    padding-left: 10px;
+}
+.input img{
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    left: 7%;
+    cursor: pointer;
+}
+.input input::placeholder{
+    font-family: 'Courier New', Courier, monospace;
+}
+.input input:focus{
+    border: 1px rgba(130, 226, 181, 0.8) solid;
+}
+
+

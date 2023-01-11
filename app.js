@@ -4,6 +4,7 @@ const cookieParser = require('cookie-parser')
 const app = express();
 const port = 3000;
 const loginRouter = require("./routes/sign-up.routes.js");
+const   blogRouter = require("./routes/blog.routes.js")
 const cors = require('cors');
 
 app.set("view engine" ,"ejs")
@@ -16,6 +17,7 @@ app.use(cookieParser())
 app.use(cors());
 
 app.use("/",loginRouter);
+app.use("/blog",blogRouter)
 
 app.get("/", (req,res)=>{
     res.render("login"); 

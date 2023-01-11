@@ -45,95 +45,21 @@
     <div class="containerHome">
         <div class="grid--content">
             <div class="column--wrapper">
-                <div class="post--item">
-                    <img src="https://picsum.photos/236/389" alt="Random Image">
-                    <div class="post-user">
-                        <a href="/blog/" target="_blank" rel="noopener">
-                            <img src="https://source.unsplash.com/collection/888146/100x100" alt="User Image">
-                            <span>Johnny Bravo</span>
-                        </a>
+                <% for(var i=0; i<value.length; i++) {%>
+                    <div class="post--item" id="<%=value[i].blogID %>" >
+                        <img  src="<%=value[i].urlIMg %>" alt="Random Image" data-index="<%=i %>" class="image">
+                        <div class="post-user">
+                            <a href="/blog/" target="_blank" rel="noopener">
+                                <img src="https://source.unsplash.com/collection/888146/100x100" alt="User Image">
+                                <span><%=value[i].userName %></span>
+                            </a>
+                        </div>
+                        <p> Link here</p>
+                        <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                        <i class="fa-solid fa-ellipsis"></i>
+                        <button>Save</button>
                     </div>
-                    <p> Link here</p>
-                    <i class="fa-solid fa-arrow-up-from-bracket"></i>
-                    <i class="fa-solid fa-ellipsis"></i>
-                    <button>Save</button>
-                </div>
-                <div class="post--item">
-                    <img src="https://picsum.photos/236/290" alt="Random Image">
-                   
-                    <div class="post-user">
-                        <a href="/blog/" target="_blank" rel="noopener">
-                            <img src="https://source.unsplash.com/collection/888146/101x101" alt="User Image">
-                            <span>Johnny Bravo</span>
-                        </a>
-                    </div>
-                    <p> Link here</p>
-                    <i class="fa-solid fa-arrow-up-from-bracket"></i>
-                    <i class="fa-solid fa-ellipsis"></i>
-                    <button>Save</button>
-                </div>
-                <div class="post--item">
-                    <img src="https://picsum.photos/236/200" alt="Random Image">
-                   
-                    <div class="post-user">
-                        <a href="/blog/" target="_blank" rel="noopener">
-                            <img src="https://source.unsplash.com/collection/888146/102x102" alt="User Image">
-                            <span>Johnny Bravo</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="post--item">
-                    <img src="https://picsum.photos/236/450" alt="Random Image">
-                  
-                    <div class="post-user">
-                        <a href="/blog/" target="_blank" rel="noopener">
-                            <img src="https://source.unsplash.com/collection/888146/103x103" alt="User Image">
-                            <span>Johnny Bravo</span>
-                        </a>
-                    </div>
-                    <p> Link here</p>
-                    <i class="fa-solid fa-arrow-up-from-bracket"></i>
-                    <i class="fa-solid fa-ellipsis"></i>
-                    <button>Save</button>
-                </div>
-                <div class="post--item">
-                    <img src="https://picsum.photos/236/125" alt="Random Image">
-                    
-                    <div class="post-user">
-                        <a href="/blog/" target="_blank" rel="noopener">
-                            <img src="https://source.unsplash.com/collection/888146/104x104" alt="User Image">
-                            <span>Johnny Bravo</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="post--item">
-                    <img src="https://picsum.photos/236/210" alt="Random Image">
-                    
-                    <div class="post-user">
-                        <a href="/blog/" target="_blank" rel="noopener">
-                            <img src="https://source.unsplash.com/collection/888146/105x105" alt="User Image">
-                            <span>Johnny Bravo</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="post--item">
-                    <img src="https://picsum.photos/236/380" alt="Random Image">
-                    <div class="post-user">
-                        <a href="/blog/" target="_blank" rel="noopener">
-                            <img src="https://source.unsplash.com/collection/888146/106x106" alt="User Image">
-                            <span>Johnny Bravo</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="post--item">
-                    <img src="https://picsum.photos/236/300" alt="Random Image">
-                    <div class="post-user">
-                        <a href="/blog/" target="_blank" rel="noopener">
-                            <img src="https://source.unsplash.com/collection/888146/107x107" alt="User Image">
-                            <span>Johnny Bravo</span>
-                        </a>
-                    </div>
-                </div>
+                 <% } %>
             </div>
         </div>
     </div>

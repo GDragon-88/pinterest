@@ -16,11 +16,9 @@ const upload = multer({ storage: storage })
 const {getInfoUserFromSignUp,checkUser} = require("../controllers/sign-up.controller.js");
 const {checkEmailExist} = require("../middleware/check.middleware.js")
 const {checkCookie} = require("../middleware/checkCookie.js")
+const {showBlog} = require("../controllers/blog-controller.js")
 
-
-router.get("/home",checkCookie,(req,res)=>{
-    res.render("home")
-})
+router.get("/home",checkCookie,showBlog)
 const {upLoadImg} = require("../controllers/upload-image.js")
 router.post("/upload" ,upload.single("loadImage"), upLoadImg)
 router.post("/user",checkUser)
