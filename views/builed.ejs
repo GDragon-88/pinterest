@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/builed.css">
+</head>
+<body>
+    <div class="tabar">
+        <i class="fa-solid fa-arrow-left-long"></i><span>Back to draft</span>
+        <h2>Make a Your ideal </h2>
+        <button id="btnPublish">Publish</button>
+    </div>
+
+    <div class="main">
+        <div class="img-build">
+            <img id="path" src="http://localhost:3000/<%= value%>" alt="">
+        </div>
+        <div class="title">
+            <div class="getContent">
+                <label for="">title</label><br>
+                <input type="text" maxlength="100" placeholder="title max 100 character" id="title"><br>
+                <label for="">file</label><br>
+                <select id="field">
+                    <option ></option>
+                    <option >Architect</option>
+                    <option >Cutrural</option>
+                    <option >Photo</option>
+                    <option >Bike</option>
+                    <option >Animal</option>
+                    <option >Tattoo</option>
+                    <option >Canvas</option>
+                    <option >Tea</option>
+                    <option >Passion</option>
+                    <option >Fashion</option>
+                    <option >Easport</option>
+                </select><br>
+                <label for="">description</label><br>
+                <input type="text" id="description"><br>
+            </div>
+            <div class="container">
+                <label class="switch"><input type="checkbox" id="checkbox" />
+                    <div></div>
+                </label>
+                <span>alow  user dont comment</span>
+              </div>
+        </div>
+    </div>
+</body>
+<script src="/builded.js"></script>
+</html>

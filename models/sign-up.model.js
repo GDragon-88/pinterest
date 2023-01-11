@@ -7,4 +7,4 @@ module.exports.addInfoUserFromSignUp = (mail,password,age)=>{
 
 module.exports.getAllUser = ()=>{
     return db.execute("SELECT * FROM pinterest_schemas.tbl_user;")
-}
+};

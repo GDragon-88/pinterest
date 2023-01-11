@@ -10,7 +10,6 @@ module.exports.checkEmailExist = async(req,res,next)=>{
             return i
         }
     })
-    console.log(result);
     if(!result){
         next()
     }else{

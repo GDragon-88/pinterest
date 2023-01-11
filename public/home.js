@@ -2,10 +2,12 @@
 // bat su kien click nut create
 let create = document.querySelector('.dropbtn');
 create.addEventListener("click",()=>{
-   
     if(document.querySelector(".dropdown-content").style.display == "none"){
         document.querySelector(".dropdown-content").style.display = "block"
-    }else{
+    }else if(document.querySelector(".dropdown-content").style.display == ""){
+        document.querySelector(".dropdown-content").style.display = "block"
+    }   
+    else{
         document.querySelector(".dropdown-content").style.display = "none"
     }
 })

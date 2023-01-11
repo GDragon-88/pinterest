@@ -3,3 +3,4 @@ const jwt = require("jsonwebtoken");
 module.exports.isAuth =async(req,res)=>{
     let allDataUser = await getAllUser()
 };
+

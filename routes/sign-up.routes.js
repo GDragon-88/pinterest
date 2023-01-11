@@ -1,44 +1,53 @@
 const express = require("express");
 const router = express.Router()
 const multer  = require('multer')
-// const upload = multer({ dest: 'uploads' })
-
-
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
       cb(null, './uploads')
     },
     filename: function (req, file, cb) {
-      cb(null, file.originalname)
+      cb(null,  Date.now() + '_' + file.originalname)
     }
 })
-
 const upload = multer({ storage: storage })
 
 
-const {getInfoUserFromSignUp} = require("../controllers/sign-up.controller.js");
+
+const {getInfoUserFromSignUp,checkUser} = require("../controllers/sign-up.controller.js");
 const {checkEmailExist} = require("../middleware/check.middleware.js")
+const {checkCookie} = require("../middleware/checkCookie.js")
 
 
-
-
-
-router.get("/" ,(req,res)=>{
-    res.render("login")
+router.get("/home",checkCookie,(req,res)=>{
+    res.render("home")
 })
-
-
-router.post("/upload" ,upload.single("loadImage"),(req,res,next)=>{
-    console.log(req.file);
-    res.json({mess:"ok"})
-})
-
-router.get("/api/upload/:img",(req,res)=>{
-    let {img} = req.params
-    console.log(img);
-    res.render("api-image",{value:img})
-})
-
+const {upLoadImg} = require("../controllers/upload-image.js")
+router.post("/upload" ,upload.single("loadImage"), upLoadImg)
+router.post("/user",checkUser)
 router.post("/",checkEmailExist,getInfoUserFromSignUp)
+router.get("/create-ideal",checkCookie, (req,res)=>{
+  res.render("createIdeal")
+})
+
+
+
+// xay dung blog qu hinh anh 
+router.get("/create-build/:nameImg",checkCookie,(req,res)=>{
+  console.log(req.params);
+  res.render("builed",{value:req.params.nameImg})
+});
+// gui du lieu blog
+const {createBlog} = require("../controllers/create-blog.js")
+router.post("/creat-blog",createBlog)
+// api-anh 
+router.get("/api/image/:id",(req,res)=>{
+    res.render("api-image",{value:req.params.id})
+})
+
+
+
+
 
 module.exports = router;
+
+

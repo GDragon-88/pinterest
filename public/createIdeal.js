@@ -1,4 +1,7 @@
 
+
+
+
 let create = document.querySelector('.dropbtn');
 create.addEventListener("click",()=>{
    
@@ -25,20 +28,17 @@ back.addEventListener("click" ,()=>{
 })
 
 // su kien upfile anh 
-upFile.addEventListener("input",()=>{
+upFile.addEventListener("input", async()=>{
     let file = upFile.files[0]
-    var img = new FormData()
-        img.append('loadImage', file, file.name)
-    fetch("http://localhost:3000/upload",{
+    var formData = new FormData();
+        formData.append('loadImage', file);
+       console.log(file);
+  await  fetch("http://localhost:3000/upload",{
         method:"POST",
-        body:img,
-        // headers:{'Content-Type':'multipart/form-data'}
-        
-    }).then(async(res)=>{
-        console.log(await res.json());
+        body:formData, 
+    }).then((res)=>{
+        return res.json()
+    }).then((data)=>{
+        window.location.href = `http://localhost:3000/create-build/${data.mess}`
     })
-
-      
-
-
 })

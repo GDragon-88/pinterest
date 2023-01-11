@@ -97,3 +97,53 @@ form.addEventListener("submit",(e)=>{
 // sukien login 
 
 
+btnLogIn.addEventListener("click" , (e)=>{
+    e.preventDefault();
+    let logIn_form = document.getElementById("logIn-form")
+    let data = {
+        email:logIn_form.mail.value,
+        password:logIn_form.password.value
+    }
+    if(logIn_form.mail.value==""){
+        document.querySelectorAll("#logIn-form small")[0].style.visibility = "visible"
+        document.querySelectorAll("#logIn-form small")[0].textContent = "Email cant be blank!!"
+    }else if((/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(logIn_form.mail.value)==false)){
+        document.querySelectorAll("#logIn-form small")[0].style.visibility = "visible"
+        document.querySelectorAll("#logIn-form small")[0].textContent =  "Email wrong format!!"
+    }
+
+    if(logIn_form.password.value==""){
+        message.style.visibility = "visible"
+        message.textContent = "password cant be blank!!"
+    }else if(logIn_form.password.value.length<=6){
+        message.style.visibility = "visible"
+        message.textContent = "password mus have more than 7 charater!!"
+    }
+    
+    if((/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(logIn_form.mail.value)==true 
+    && logIn_form.mail.value != ""  && logIn_form.password.value !=="" && logIn_form.password.value.length >6)){
+        fetch("http://localhost:3000/user",{
+            method:"POST",
+            body:JSON.stringify(data),
+            headers:{'Accept': 'application/json',
+            'Content-Type': 'application/json'}
+        }).then(async(res)=>{
+         return   await res.json();
+        }).then((data)=>{
+            let token = data.token;
+            if(token){
+                setCookie("cookie",data.token,1);
+                window.location.href = "http://localhost:3000/home";
+            }else{
+                console.log(data);
+            }
+        })
+    }
+
+} );
+function setCookie(cname, cvalue, exdays) {
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    let expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
