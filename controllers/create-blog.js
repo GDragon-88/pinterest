@@ -11,6 +11,5 @@ module.exports.createBlog = async(req,res)=>{
         res.json({mess:"successs!!"})
     })
 
-    
 }
 

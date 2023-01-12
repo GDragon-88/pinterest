@@ -291,6 +291,13 @@ margin-left: 5px;
     margin-bottom: 5px;
     cursor:pointer;
 }
+.grid--content .column--wrapper .post--item video {
+    /* box-shadow: 0 0 3px 2px #00000021;    */
+    border-radius: 15px;
+    width: 100%;
+    margin-bottom: 5px;
+    cursor:pointer;
+}
 
 
 

@@ -19,7 +19,13 @@
 
     <div class="main">
         <div class="img-build">
-            <img id="path" src="http://localhost:3000/<%= value%>" alt="">
+              <% if(value.includes("mp4")){ %>
+                <img id="path" style="display: none;"  src="http://localhost:3000/<%= value%>" alt="">              
+                <video  autoplay="" playsinline="" muted="" loop="" controls><source src="http://localhost:3000/<%= value%>" type="video/mp4"></video>
+              <% } else{ %>  
+                <img id="path"  src="http://localhost:3000/<%= value%>" alt="">
+                <video style="display: none" src="http://localhost:3000/<%= value%>"></video>
+             <% } %>
         </div>
         <div class="title">
             <div class="getContent">

@@ -27,20 +27,16 @@ router.get("/create-ideal",checkCookie, (req,res)=>{
   res.render("createIdeal")
 })
 
-
-
 // xay dung blog qu hinh anh 
 router.get("/create-build/:nameImg",checkCookie,(req,res)=>{
-  console.log(req.params);
+  console.log(req.params.nameImg);
   res.render("builed",{value:req.params.nameImg})
 });
 // gui du lieu blog
 const {createBlog} = require("../controllers/create-blog.js")
 router.post("/creat-blog",createBlog)
 // api-anh 
-router.get("/api/image/:id",(req,res)=>{
-    res.render("api-image",{value:req.params.id})
-})
+
 
 
 

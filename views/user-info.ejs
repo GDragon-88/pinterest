@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/navbar.css">
+    <link rel="stylesheet" href="/user-info.css">
+</head>
+<body>
+    <%- include("navbar")%>
+    
+    <div class="showInfo">
+        <div class="info--user">
+            <% if(user[0].linkAvart!=null){ %>
+                <img src="<%=user[0].linkAvart%>" alt="">
+              <% } else{ %>  
+                <img src="https://camnang24h.net/wp-content/uploads/2021/05/nhung-hinh-anh-minions-ngo-nghinh-dang-yeu-lam-hinh-nen-dep-nhat-1.jpg" alt="">
+             <% } %>
+
+
+            <h2><%=user[0].userName %></h2>
+            <p>@<%= user[0].email.split('@')[0]%></p>
+            <span>0 people are following</span>
+            <div class="btn">
+                <button id="btnShare">Share</button>
+                <button id="btnSetting">Edit Profile</button>
+            </div>
+
+            <div class="btn-item">
+                <button id="btnCreate">Created</button>
+                <button id="btnSave">Saved</button>
+            </div>
+        </div>
+        
+    </div>
+    <div class="created">
+        <div class="masonry">
+            
+            <% for(var i=0; i<blog.length; i++) {%>
+                <div class="mItem" id="<%=blog[i].blogID %>">
+
+                    <% if(blog[i].urlIMg.includes("mp4")){ %>
+                        <img style="display: none;" src="<%=blog[i].urlIMg %>">
+                        <video  autoplay="" playsinline="" muted="" loop=""  data-index="<%=i %>"  class="image">
+                            <source src="<%=blog[i].urlIMg  %>" type="video/mp4"></video>
+                      <% } else{ %>  
+                        <img src="<%=blog[i].urlIMg %>">
+                        <video  style="display: none;" autoplay="" playsinline="" muted="" loop=""  data-index="<%=i %>"  class="image">
+                            <source src="<%=blog[i].urlIMg  %>" type="video/mp4"></video>
+                     <% } %>
+
+                  
+                  </div>
+             <% } %>
+            
+          </div>
+    </div>
+</body>
+    <script src="/navbar.js"></script>
+    <script src="/user-infor.js"></script>
+</html>

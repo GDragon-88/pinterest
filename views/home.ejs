@@ -35,7 +35,7 @@
             <i class="fa-solid fa-bell"></i>
             <i class="fa-regular fa-comment-dots"></i>
         </div>
-        <div class="avatar">
+        <div class="avatar" id="<%=user%> ">
             <img src="/image/img/anh2.jpeg" alt="">
         </div>
         <div class="infor">
@@ -47,7 +47,12 @@
             <div class="column--wrapper">
                 <% for(var i=0; i<value.length; i++) {%>
                     <div class="post--item" id="<%=value[i].blogID %>" >
-                        <img  src="<%=value[i].urlIMg %>" alt="Random Image" data-index="<%=i %>" class="image">
+                        <% if(value[i].urlIMg.includes("mp4")){ %>
+                            <img id="path" style="display: none;"  src="<%= value[i].urlIMg%>" alt="">              
+                            <video  autoplay="" playsinline="" muted="" loop=""  data-index="<%=i %>"  class="image"><source src="<%= value[i].urlIMg%>" type="video/mp4"></video>
+                          <% } else{ %>  
+                            <img  src="<%=value[i].urlIMg %>" alt="Random Image" data-index="<%=i %>" class="image">
+                         <% } %>             
                         <div class="post-user">
                             <a href="/blog/" target="_blank" rel="noopener">
                                 <img src="https://source.unsplash.com/collection/888146/100x100" alt="User Image">
@@ -57,7 +62,7 @@
                         <p> Link here</p>
                         <i class="fa-solid fa-arrow-up-from-bracket"></i>
                         <i class="fa-solid fa-ellipsis"></i>
-                        <button>Save</button>
+                        <button class="save" data-save="<%=i%>">Save</button>
                     </div>
                  <% } %>
             </div>

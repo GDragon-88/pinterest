@@ -30,12 +30,10 @@ module.exports.checkUser = async(req,res)=>{
         }})
         if(user){
             let token = jwt.sign(user.userId,'manhchien');
-        
             return res.json({token:token});
         }else {
             return res.json({message:"user not define!!"})
         }
-        
     } catch (error) {
         
     }

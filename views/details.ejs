@@ -16,54 +16,159 @@
 <body>
     <%- include("navbar")%>
 
-        <div class="content">
-            <div class="img">
-                <img src="./anh7.jpeg" alt="">
-            </div>
-            <div class="textContent">
-                <div class="saveBlog">
-                    <div class="icon"> 
-                        <i class="fa-solid fa-ellipsis"></i>
-                        <i class="fa-solid fa-arrow-up-from-bracket"></i>
-                        <i class="fa-solid fa-paperclip"></i>
-                    </div>
-                    <button id="btnSave">Save</button>
-                </div>
-                <div class="tilte">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
-                    
-                </div>
-                <div class="comment">
-                    <span>100 Comment</span>
-                    <div class="text-comment">
-                        <div class="user-comment">
-                            <img src="./anh11.jpeg" alt="">
-                            <span class="user">Chien nguyen</span>
-                            <span >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure iste
-                                 nulla odit voluptatem delectus illum tempore dolore dignissimos veniam dicta 
-                                 ab quae, omnis corporis neque minus! Cupiditate neque unde labore!</span>
-                        </div>
-                        <div class="response">
-                            <small>1d</small> 
-                            <small>response</small> 
-                            <small><i class="fa-regular fa-heart"></i>53</small> 
-                            <small><i class="fa-solid fa-ellipsis"></i></small>
-                        </div>
-                    </div>
-                    
-                </div>
-                <div class="input">
-                    <img src="/anh12.jpeg" alt="">
-                    <input type="text" placeholder="comment">
-                </div>
-            </div>
-
+        <div class="maintain">
+            <div class="content">
+                <div class="img">
             
-           
-        </div>
+                    <% if(url.includes("mp4")){ %>
+                      <img style="display: none;" src="<%=url%>" alt="">
+                      <video  autoplay="" controls playsinline="" muted="" loop=""  data-index="<%=i %>"><source src="<%=url%>" type="video/mp4"></video>
+                    <% } else{ %>  
+                      <img src="<%=url%>" alt="">
+                      <video style="display: none" src="http://localhost:3000/<%= value%>"></video>
+                   <% } %>
+                </div>
+                <div class="textContent">
+                    <div class="saveBlog">
+                        <div class="icon"> 
+                            <i class="fa-solid fa-ellipsis"></i>
+                            <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                            <i class="fa-solid fa-paperclip"></i>
+                        </div>
+                        <button id="btnSave">Save</button>
+                    </div>
+                    <div class="tilte">
+                      <%= value[0].title%>
+                        
+                    </div>
 
-        <!-- san phamlien quan  -->
-       
+                    <% if(value[0].textCommet==undefined) { %>
+                      <div class="comment" style="display: none">
+                        <span>100 Comment</span>
+
+                        <% for(var i=0; i < value.length; i++) { %>
+                          <div class="text-comment">
+                            <div class="user-comment">
+                                <img src="/anh11.jpeg" alt="">
+                                <span class="user"><%= value[i].userName%> </span>
+                                <span ><%= value[i].textCommet%></span>
+                            </div>
+                            <div class="response">
+                                <small>1d</small> 
+                                <small>response</small> 
+                                <small><i class="fa-regular fa-heart"></i>53</small> 
+                                <small><i class="fa-solid fa-ellipsis"></i></small>
+                            </div>
+                        </div>
+                       <% } %>
+                       
+                        
+                    </div>
+                    <% } else { %>
+                      <div class="comment">
+                        <span>100 Comment</span>
+
+                        <% for(var i=0; i < value.length; i++) { %>
+                          <div class="text-comment">
+                            <div class="user-comment">
+                                <img src="/anh11.jpeg" alt="">
+                                <span class="user"><%= value[i].userName%> </span>
+                                <span id="<%= value[i].commentID%>" class="text--comment" ><%= value[i].textCommet%></span>
+                            </div>
+                            <div class="response">
+                                <small>1d</small> 
+                                <small>response</small> 
+                                <small><i class="fa-regular fa-heart" ></i> <%= value[i].like || 0 %></small> 
+                                <small><i class="fa-solid fa-ellipsis"></i></small>
+                            </div>
+                        </div>
+                       <% } %>
+                       
+                        
+                    </div>
+                    <% } %>
+
+                    <div class="input">
+                        <img src="/anh12.jpeg" alt="">
+                        <input type="text" placeholder="comment" id="inputComment">
+                        <button id="btnCancel">Cancel</button>
+                        <button id="btnSend">Send</button>
+                    </div>
+                </div>
+    
+               
+            </div>
+    
+            <!-- san phamlien quan  -->
+            <div class="spin">
+                <span>Spin Relative</span>
+            </div>
+            <div class="masonry">
+                <div class="mItem">
+                  <img src="/image/img/anh1.jpeg">
+                </div>
+                <div class="mItem">
+                  <img src="/image/img/anh2.jpeg">
+                </div>
+                <div class="mItem">
+                  <img src="/image/img/anh3.jpeg">
+                </div>
+                <div class="mItem">
+                  <img src="/image/img/anh4.jpeg">
+                </div>
+                <div class="mItem">
+                  <img src="/image/img/anh6.jpeg">
+                </div>
+                <div class="mItem">
+                  <img src="/image/img/anh7.jpeg">
+                </div>
+                <div class="mItem">
+                  <img src="/image/img/anh9.jpeg">
+                </div>
+                <div class="mItem">
+                  <img src="/image/img/anh10.jpeg">
+                </div>
+                <div class="mItem">
+                  <img src="/image/img/anh1.jpeg">
+                </div>
+                <div class="mItem">
+                  <img src="/image/img/anh11.jpeg">
+                </div>
+                <div class="mItem">
+                  <img src="/image/img/anh12.jpeg">
+                </div>
+                <div class="mItem">
+                  <img src="/image/img/anh13.jpeg">
+                </div>
+                <div class="mItem">
+                  <img src="/image/img/anh13.jpeg">
+                </div>
+                <div class="mItem">
+                  <img src="/image/img/anh3.jpeg">
+                </div>
+                <div class="mItem">
+                  <img src="/image/img/anh9.jpeg">
+                </div>
+              
+                <div class="mItem">
+                  <img src="/image/img/anh2.jpeg">
+                </div>
+                <div class="mItem">
+                  <img src="/image/img/anh1.jpeg">
+                </div>
+              
+                <div class="mItem">
+                  <img src="/image/img/anh3.jpeg">
+                </div>
+              
+                <div class="mItem">
+                  <img src="/image/img/anh4.jpeg">
+                </div>
+                <div class="mItem">
+                  <img src="/image/img/anh2.jpeg">
+                </div>
+              </div>
+        </div>
 
       
 
@@ -71,6 +176,7 @@
 
 
 </body>
-<script src="./details.js"></script>
+<script src="/navbar.js"></script>
+<script src="/details.js"></script>
 
 </html>

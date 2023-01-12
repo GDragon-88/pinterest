@@ -84,7 +84,7 @@ form.addEventListener("submit",(e)=>{
             }else{
                 document.querySelector(".registerLayout").style. visibility= "hidden"
                 document.querySelector("body").style.overflow = "visible"
-                window.location.href = " http://localhost:3000"
+                window.location.href = "/"
             }
         })
     }
@@ -122,7 +122,7 @@ btnLogIn.addEventListener("click" , (e)=>{
     
     if((/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(logIn_form.mail.value)==true 
     && logIn_form.mail.value != ""  && logIn_form.password.value !=="" && logIn_form.password.value.length >6)){
-        fetch("http://localhost:3000/user",{
+        fetch("/user",{
             method:"POST",
             body:JSON.stringify(data),
             headers:{'Accept': 'application/json',
@@ -133,7 +133,7 @@ btnLogIn.addEventListener("click" , (e)=>{
             let token = data.token;
             if(token){
                 setCookie("cookie",data.token,1);
-                window.location.href = "http://localhost:3000/home";
+                window.location.href = "/home";
             }else{
                 console.log(data);
             }
