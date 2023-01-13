@@ -32,8 +32,8 @@
             </div>
 
             <div class="btn-item">
-                <button id="btnCreate">Created</button>
-                <button id="btnSave">Saved</button>
+                <button id="btnCreated">Created</button>
+                <button id="btnSaved">Saved</button>
             </div>
         </div>
         
@@ -60,6 +60,30 @@
             
           </div>
     </div>
+    <div class="saved">
+        <div class="masonry">
+            
+            <% for(var i=0; i<save.length; i++) {%>
+                <div class="mItem" id="<%=save[i].blogID %>">
+
+                    <% if(save[i].urlIMg.includes("mp4")){ %>
+                        <img style="display: none;" src="<%=save[i].urlIMg %>">
+                        <video  autoplay="" playsinline="" muted="" loop=""  data-index="<%=i %>"  class="image">
+                            <source src="<%=save[i].urlIMg  %>" type="video/mp4"></video>
+                      <% } else{ %>  
+                        <img src="<%=save[i].urlIMg %>">
+                        <video  style="display: none;" autoplay="" playsinline="" muted="" loop=""  data-index="<%=i %>"  class="image">
+                            <source src="<%=save[i].urlIMg  %>" type="video/mp4"></video>
+                     <% } %>
+
+                  
+                  </div>
+             <% } %>
+            
+          </div>
+    </div>
+
+
 </body>
     <script src="/navbar.js"></script>
     <script src="/user-infor.js"></script>

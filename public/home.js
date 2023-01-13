@@ -67,7 +67,7 @@ postItem.addEventListener("click",(e)=>{
 let avarta = document.querySelector(".avatar")
 avarta.addEventListener("click",()=>{
     let mail = avarta.id.split('@')[0]
-    window.location.href =`user/${mail}`
+    window.location.href =`user/infor/${mail}`
 }) 
  
 

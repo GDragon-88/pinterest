@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/navbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/edit-profile.css">
+</head>
+<body>
+    <%- include("navbar")%>
+    <div class="container">
+        <div class="title">
+            <div class="title-object first">
+                <h4>Public Profile</h4>
+            </div>
+            <div class="title-object"> 
+                <h4>Personal information</h4>
+            </div>
+            <div class="title-object">
+                <h4>Account Management</h4>
+            </div>
+            <div class="title-object">
+                <h4>Customize your home feed</h4>
+            </div>
+            <div class="title-object">
+                <h4>Verified account</h4>
+            </div>
+            <div class="title-object">
+                <h4>Privacy and data</h4>
+            </div>
+            <div class="title-object">
+                <h4> Security and login</h4>
+            </div>
+            <div class="title-object">
+                <h4>Branded Content</h4>
+            </div>
+        </div>
+        <div class="main">
+            <div class="information">
+                <h3>Public Profile</h3>
+                <small>People visiting your profile will see the following information</small>
+                <div class="information-avatar">
+                    <small>photo</small>
+                    <img src="/anh7.jpeg" alt="">
+                    <button id="btnChange">Change</button>
+                    <div class="input-avartar">
+                        <div class="select-file">
+                            <span>Change your photo</span><br>
+                            <main class="main_full">
+                            
+                                <div class="panel">
+                                    <div class="button_outer">
+                                        <div class="btn_upload">
+                                            <input type="file" id="uploadFile" name="avatar">
+                                            Upload Image
+                                        </div>
+                                        <div class="processing_bar"></div>
+                                        <div class="success_box"></div>
+                                    </div>
+                                </div>
+                                <div class="error_msg"></div>
+                                <div class="uploaded_file_view" id="uploaded_view">
+                                    <span class="file_remove">X</span>
+                                </div>
+                            
+                            </main>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/edit-profile.js"></script>
+</html>

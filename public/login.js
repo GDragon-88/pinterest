@@ -7,7 +7,7 @@ signUp.addEventListener("click",()=>{
 
     document.addEventListener("mouseup",(e)=>{
     if(!document.getElementById("registerLayout").contains(e.target)){
-        document.querySelector(".registerLayout").style. visibility= "hidden"
+        document.querySelector(".registerLayout").style.visibility= "hidden"
         document.querySelector("body").style.overflow = "visible"
     }
     })

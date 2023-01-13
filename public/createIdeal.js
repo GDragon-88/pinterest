@@ -33,12 +33,12 @@ upFile.addEventListener("input", async()=>{
     var formData = new FormData();
         formData.append('loadImage', file);
        console.log(file);
-  await  fetch("http://localhost:3000/upload",{
+  await  fetch("/upload",{
         method:"POST",
         body:formData, 
     }).then((res)=>{
         return res.json()
     }).then((data)=>{
-        window.location.href = `http://localhost:3000/create-build/${data.mess}`
+        window.location.href = `/create-build/${data.mess}`
     })
 })

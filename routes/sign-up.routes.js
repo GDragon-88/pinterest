@@ -29,7 +29,7 @@ router.get("/create-ideal",checkCookie, (req,res)=>{
 
 // xay dung blog qu hinh anh 
 router.get("/create-build/:nameImg",checkCookie,(req,res)=>{
-  console.log(req.params.nameImg);
+  
   res.render("builed",{value:req.params.nameImg})
 });
 // gui du lieu blog
