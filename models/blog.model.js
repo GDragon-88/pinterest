@@ -10,7 +10,7 @@ module.exports.getAllBlog= ()=>{
 }
 
 module.exports.getCommentBlog = (idBlog)=>{
-    let sql =`select textCommet,userName,title,tbl_comment.like,tbl_comment.commentID , Field,description,urlIMg from pinterest_schemas.tbl_comment ,pinterest_schemas.tbl_user ,pinterest_schemas.tbl_blog 
+    let sql =`select textCommet,userName,title,tbl_comment.like,tbl_user.linkAvart, tbl_comment.commentID , Field,description,urlIMg from pinterest_schemas.tbl_comment ,pinterest_schemas.tbl_user ,pinterest_schemas.tbl_blog 
     where tbl_comment.blogID = "${idBlog}" and  tbl_comment.userId = tbl_user.userId and  tbl_comment.blogID =  tbl_blog.blogID`
     return db.execute(sql)
 }

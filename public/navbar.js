@@ -14,5 +14,15 @@ create.addEventListener("click",()=>{
 // su kien click nut home
 let home = document.querySelector(".home button")
 home.addEventListener("click",()=>{
-    window.location.href = "http://localhost:3000/home"
+    window.location.href = "/home"
 });
+
+logOut.addEventListener("click",()=>{
+    console.log(1);
+    let choiceLogOut = confirm(" do U wanna logOut")
+    if(choiceLogOut==true){
+        fetch("/logout",{method:"POST"}).then(()=>{
+            window.location.href = "/"
+        })
+    }
+})

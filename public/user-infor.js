@@ -12,3 +12,8 @@ btnSaved.addEventListener("click",()=>{
     document.querySelector(".saved").style.display = "block"
     document.querySelector(".created").style.display = "none"
 });
+
+
+btnSetting.addEventListener("click",()=>{
+    window.location.href = "/user/edit-profile"
+})

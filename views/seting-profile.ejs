@@ -46,7 +46,7 @@
                 <small>People visiting your profile will see the following information</small>
                 <div class="information-avatar">
                     <small>photo</small>
-                    <img src="/anh7.jpeg" alt="">
+                    <img src="/<%=user[0].linkAvart%> " alt="">
                     <button id="btnChange">Change</button>
                     <div class="input-avartar">
                         <div class="select-file">
@@ -70,6 +70,21 @@
                             
                             </main>
                         </div>
+
+                        <div class="user--name">
+                            <div class="first--name">
+                                <span>
+                                    <label for="">first name</label><br>
+                                    <input type="text">
+                                </span>
+                            </div>
+                            <div class="last--name">
+                                <span>
+                                    <label for="">last name name</label><br>
+                                    <input type="text">
+                                </span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -77,6 +92,5 @@
     </div>
 </body>
 
-<script src="/socket.io/socket.io.js"></script>
 <script src="/edit-profile.js"></script>
 </html>

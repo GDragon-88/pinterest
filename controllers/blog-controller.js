@@ -1,9 +1,13 @@
 const jwt = require("jsonwebtoken")
+const express = require("express");
+const app = express();
+const http = require("http").Server(app);
+const io = require("socket.io")(http);
 
 const {getAllBlog,getCommentBlog,
     getInfoBlog,
     updateCommentText,addCollection,checkCollection} = require("../models/blog.model.js");
-
+const {getInfoId} = require("../models/sign-up.model.js")
 
 module.exports.showBlog = async(req,res)=>{
     let [dataBlog] = await getAllBlog()
@@ -11,15 +15,19 @@ module.exports.showBlog = async(req,res)=>{
 }
 // hien detail blog
 module.exports.oneBlog = async(req,res)=>{
-    console.log(req.params);
     let [data] = await getCommentBlog(req.params.id)
+    let idUser = jwt.verify(req.cookies.cookie ,"manhchien")
+    
+    let [dataInforUser] = await getInfoId(idUser)
+    
     if(data.length==0){
         [data] = await getInfoBlog(req.params.id)
         let link = data[0].urlIMg
-        res.render("details",{url:link,value:data});
+        res.render("details",{url:link,value:data,user:dataInforUser});
     }else{
         let link = data[0].urlIMg
-        res.render("details",{value:data,url:link})
+        console.log(dataInforUser);
+        res.render("details",{value:data,url:link,user:dataInforUser })
     } 
 }
 

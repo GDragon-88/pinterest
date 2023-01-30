@@ -7,7 +7,6 @@ module.exports.findUser =(mail,password)=>{
 };
 
 
-
 // upload anh deen tbl-img
 module.exports.upIMG =(user_id,imgName,path)=>{
     let sql = `INSERT INTO pinterest_schemas.tbl_img ( user_id, imgName, path) VALUES ( '${user_id}', '${imgName}', '${path}');`
@@ -25,5 +24,12 @@ module.exports.getCollectionUser = (userID)=>{
     sql = mysql.format(sql,value)
     return db.execute(sql);
 }
+module.exports.updateAvatar =(url,user_id)=>{
+    let sql = "UPDATE `pinterest_schemas`.`tbl_user` SET `linkAvart` = ? WHERE (`userId` = ?);"
+    let value = [url,user_id]
+    sql = mysql.format(sql,value)
+    return db.execute(sql);
+}
+
 
 

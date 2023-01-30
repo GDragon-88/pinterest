@@ -11,7 +11,8 @@ module.exports.getInfoUserFromSignUp = async(req,res)=>{
         let dataUser = req.body;
         let password = dataUser.password
         let hash = bcrypt.hashSync(password,10)
-        await addInfoUserFromSignUp(dataUser.email,hash,dataUser.age).then((res)=>{
+        let name = dataUser.email.split("@")[0]
+        await addInfoUserFromSignUp(dataUser.email,name,hash,dataUser.age).then((res)=>{
             res.json({message:"successs!!"})
         })
     } catch (error) {

@@ -17,7 +17,15 @@ home.addEventListener("click",()=>{
     window.location.href = "/home"
 });
 
-
+logOut.addEventListener("click",()=>{
+    console.log(1);
+    let choiceLogOut = confirm(" do U wanna logOut")
+    if(choiceLogOut==true){
+        fetch("/logout",{method:"POST"}).then(()=>{
+            window.location.href = "/"
+        })
+    }
+})
 // su kien nut hove vao an h hien ra nut save
 let postItem = document.querySelector(".column--wrapper")
 postItem.addEventListener("mouseover" ,(e)=>{

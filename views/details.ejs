@@ -19,7 +19,6 @@
         <div class="maintain">
             <div class="content">
                 <div class="img">
-            
                     <% if(url.includes("mp4")){ %>
                       <img style="display: none;" src="<%=url%>" alt="">
                       <video  autoplay="" controls playsinline="" muted="" loop=""  data-index="<%=i %>"><source src="<%=url%>" type="video/mp4"></video>
@@ -71,7 +70,7 @@
                         <% for(var i=0; i < value.length; i++) { %>
                           <div class="text-comment">
                             <div class="user-comment">
-                                <img src="/anh11.jpeg" alt="">
+                                <img src="/<%= value[i].linkAvart%>" alt="">
                                 <span class="user"><%= value[i].userName%> </span>
                                 <span id="<%= value[i].commentID%>" class="text--comment" ><%= value[i].textCommet%></span>
                             </div>
@@ -87,9 +86,8 @@
                         
                     </div>
                     <% } %>
-
                     <div class="input">
-                        <img src="/anh12.jpeg" alt="">
+                        <img src="/<%= user[0].linkAvart%>" alt="" id="<%=user[0].userNamel%>" >
                         <input type="text" placeholder="comment" id="inputComment">
                         <button id="btnCancel">Cancel</button>
                         <button id="btnSend">Send</button>
@@ -176,6 +174,7 @@
 
 
 </body>
+<script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
 <script src="/navbar.js"></script>
 <script src="/details.js"></script>
 

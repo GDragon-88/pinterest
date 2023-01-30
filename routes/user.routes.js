@@ -15,6 +15,8 @@ const upload = multer({ storage: storage })
 const {checkCookie} = require("../middleware/checkCookie.js")
 const {getUserInfo,showProfile,getAvatar } = require("../controllers/user-info.controller.js")
 
+
+
 router.get("/infor/:id",checkCookie,getUserInfo)
 router.get("/edit-profile",checkCookie,showProfile)
 

@@ -1,6 +1,6 @@
 
 
-
+document.querySelector(".avatar img" ).src =document.querySelector(".information-avatar img").src
 
 btnChange.addEventListener("click",()=>{
     document.querySelector(".input-avartar").style.display = "block"
@@ -15,15 +15,19 @@ btnChange.addEventListener("click",()=>{
 
 //  su kien fecth anh anvatar
 uploadFile.addEventListener("input",()=>{
-    console.log(1);
-    const socket = io("http://localhost:3000/user/edit-profile");
     let file = uploadFile.files[0]
     let formData = new FormData();
         formData.append('avatar', file);
-       console.log(file);
-       socket.emit("Client-sent-data", {data:"day la io"})
        fetch("/user/edit-profile",{
         method:"POST",
         body:formData, 
+    }).then(res=>res.json())
+    .then((data)=>{
+        console.log(data);
+        document.querySelector(".information-avatar img").src = `/${data.url}`
+        document.querySelector(".input-avartar").style.display = "none"
+        document.querySelector("body").style.overflow = "visible"
     })
 })
+
+
